@@ -108,6 +108,12 @@ router.post('/bookings', authMiddleware, async (req, res) => {
     // Calculate number of nights
     const checkIn = new Date(check_in_date);
     const checkOut = new Date(check_out_date);
+    
+    // Validate dates
+    if (checkOut <= checkIn) {
+      return res.status(400).json({ error: 'Check-out date must be after check-in date' });
+    }
+    
     const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
     const totalPrice = pricePerNight * nights;
 

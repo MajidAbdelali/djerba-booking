@@ -26,7 +26,9 @@ services:
       DB_USER: postgres
       DB_PASSWORD: postgres
       DB_NAME: djerba_booking
-      JWT_SECRET: djerba_secret_key_change_in_production
+      # IMPORTANT: Set a strong JWT_SECRET environment variable before running
+      # For production, use: JWT_SECRET=${JWT_SECRET}
+      JWT_SECRET: ${JWT_SECRET:-djerba_dev_secret_change_for_production}
     ports:
       - "5000:5000"
     depends_on:

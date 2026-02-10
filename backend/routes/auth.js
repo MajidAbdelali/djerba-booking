@@ -30,9 +30,14 @@ router.post('/register', async (req, res) => {
     const user = result.rows[0];
 
     // Generate JWT token
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not set in environment variables');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
     const token = jwt.sign(
       { id: user.id, email: user.email },
-      process.env.JWT_SECRET || 'your_jwt_secret_key_here_change_in_production',
+      process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
@@ -65,9 +70,14 @@ router.post('/login', async (req, res) => {
     }
 
     // Generate JWT token
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not set in environment variables');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
     const token = jwt.sign(
       { id: user.id, email: user.email },
-      process.env.JWT_SECRET || 'your_jwt_secret_key_here_change_in_production',
+      process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 

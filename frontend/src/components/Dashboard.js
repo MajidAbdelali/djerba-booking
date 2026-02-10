@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { accommodationService } from '../services/api';
 import AccommodationCard from './AccommodationCard';
 import Filters from './Filters';
@@ -15,11 +15,7 @@ const Dashboard = () => {
     search: ''
   });
 
-  useEffect(() => {
-    fetchAccommodations();
-  }, [filters]);
-
-  const fetchAccommodations = async () => {
+  const fetchAccommodations = useCallback(async () => {
     try {
       setLoading(true);
       const data = await accommodationService.getAll(filters);
@@ -29,7 +25,11 @@ const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    fetchAccommodations();
+  }, [fetchAccommodations]);
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
