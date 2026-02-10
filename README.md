@@ -1,8 +1,70 @@
 # Djerba Booking 🏖️
 
+> **📖 [QUICKSTART.md](QUICKSTART.md) - Lancer l'application en 1 minute!**
+
 Une application web complète pour réserver les meilleurs hôtels et maisons d'hôtes à Djerba.
 
 Djerba est une destination unique, et cette application aide à choisir entre le luxe d'un hôtel de zone touristique et l'authenticité d'un Houch (maison d'hôtes traditionnelle).
+
+## 🚀 Quick Start - Comment lancer l'application
+
+### Option 1: Avec Docker (Recommandé - Le plus simple!)
+
+```bash
+# Lancez tout avec une seule commande
+docker-compose up
+```
+
+Ensuite, ouvrez votre navigateur sur **http://localhost:3000**
+
+C'est tout! Docker va automatiquement:
+- ✅ Créer la base de données PostgreSQL
+- ✅ Importer les données de démonstration
+- ✅ Démarrer le serveur backend (port 5000)
+- ✅ Démarrer l'application frontend (port 3000)
+
+### Option 2: Installation manuelle
+
+**Prérequis**: Node.js 14+ et PostgreSQL 12+
+
+#### Avec les scripts fournis (Recommandé):
+
+```bash
+# Tout-en-un: setup complet
+./setup.sh
+
+# Ensuite, dans 2 terminaux séparés:
+./start-backend.sh   # Terminal 1
+./start-frontend.sh  # Terminal 2
+```
+
+#### Ou manuellement:
+
+```bash
+# 1. Base de données
+createdb djerba_booking
+psql -d djerba_booking -f backend/schema.sql
+
+# 2. Backend (dans un terminal)
+cd backend
+npm install
+cp .env.example .env
+# Éditez .env avec vos paramètres PostgreSQL
+npm start
+
+# 3. Frontend (dans un autre terminal)
+cd frontend
+npm install
+npm start
+```
+
+Ouvrez **http://localhost:3000** dans votre navigateur.
+
+### 🎯 Premier test
+
+1. Cliquez sur "S'inscrire" pour créer un compte
+2. Utilisez les filtres pour chercher des hébergements
+3. Essayez différents critères: type, saison, prix, nombre de personnes
 
 ## Fonctionnalités
 
