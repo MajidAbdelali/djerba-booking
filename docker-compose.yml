@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: djerba_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: djerba_booking
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - djerba_network
+
+  backend:
+    build: ./backend
+    container_name: djerba_backend
+    environment:
+      PORT: 5000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: djerba_booking
+      JWT_SECRET: djerba_secret_key_change_in_production
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - djerba_network
+    command: sh -c "sleep 10 && npm start"
+
+  frontend:
+    build: ./frontend
+    container_name: djerba_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - djerba_network
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+
+volumes:
+  postgres_data:
+
+networks:
+  djerba_network:
+    driver: bridge
