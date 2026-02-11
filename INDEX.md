@@ -17,6 +17,7 @@ Choose your preferred method:
 |----------|---------|----------|
 | [QUICKSTART.md](QUICKSTART.md) | 1-minute fast start | Quick setup |
 | [HOW_TO_RUN.md](HOW_TO_RUN.md) | Complete guide | Step-by-step |
+| [PGADMIN_SETUP.md](PGADMIN_SETUP.md) | Database setup with pgAdmin | GUI users |
 | [RUN_INSTRUCTIONS.txt](RUN_INSTRUCTIONS.txt) | Command reference | Quick lookup |
 
 ### Detailed Information

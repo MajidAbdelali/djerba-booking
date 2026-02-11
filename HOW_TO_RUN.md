@@ -85,6 +85,7 @@ Compiled successfully!
 
 ### Étape 1: Base de données
 
+**Option A - Ligne de commande:**
 ```bash
 # Créer la base de données
 createdb djerba_booking
@@ -92,6 +93,19 @@ createdb djerba_booking
 # Importer le schéma et les données
 psql -d djerba_booking -f backend/schema.sql
 ```
+
+**Option B - Interface graphique pgAdmin:**
+
+👉 **Voir le guide complet: [PGADMIN_SETUP.md](PGADMIN_SETUP.md)**
+
+Ce guide vous montre étape par étape comment:
+- Lancer pgAdmin
+- Créer la base de données visuellement
+- Importer le schéma avec Query Tool
+- Vérifier les tables et les données
+- Configurer la connexion
+
+Idéal si vous préférez une interface graphique! 🗄️
 
 ### Étape 2: Backend
 

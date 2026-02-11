@@ -45,6 +45,8 @@ C'est tout! Docker va automatiquement:
 createdb djerba_booking
 psql -d djerba_booking -f backend/schema.sql
 
+# 💡 Préférez l'interface graphique? Voir PGADMIN_SETUP.md
+
 # 2. Backend (dans un terminal)
 cd backend
 npm install

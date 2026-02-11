@@ -15,9 +15,14 @@ docker-compose up
 ### Méthode 2: Installation manuelle en 3 étapes
 
 #### Étape 1: Base de données
+
+**Option A - Ligne de commande:**
 ```bash
 ./setup-database.sh
 ```
+
+**Option B - Interface graphique pgAdmin:**
+Voir le guide complet → **[PGADMIN_SETUP.md](PGADMIN_SETUP.md)** 🗄️
 
 #### Étape 2: Backend (Terminal 1)
 ```bash
