@@ -1,0 +1,60 @@
+╔══════════════════════════════════════════════════════════════╗
+║          🏖️  DJERBA BOOKING - HOW TO RUN                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+📖 QUICK REFERENCES:
+   • QUICKSTART.md     - 1-minute quick start
+   • HOW_TO_RUN.md     - Complete step-by-step guide
+   • README.md         - Full documentation
+   • SETUP_GUIDE.md    - Detailed setup & testing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 FASTEST WAY - DOCKER (Recommended):
+
+   docker-compose up
+
+   Then open: http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️  EASY WAY - WITH SCRIPTS:
+
+   1. ./setup.sh                  (one-time setup)
+   2. ./start-backend.sh          (terminal 1)
+   3. ./start-frontend.sh         (terminal 2)
+   
+   Then open: http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 MANUAL WAY:
+
+   Database:
+   createdb djerba_booking
+   psql -d djerba_booking -f backend/schema.sql
+
+   Backend (terminal 1):
+   cd backend && npm install && cp .env.example .env
+   # Edit .env with your settings
+   npm start
+
+   Frontend (terminal 2):
+   cd frontend && npm install && npm start
+   
+   Then open: http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 PREREQUISITES:
+   Docker:  Docker + Docker Compose
+   Manual:  Node.js 14+ + PostgreSQL 12+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 FIRST TEST:
+   1. Register: test@example.com / password123
+   2. Browse 8 sample accommodations
+   3. Try filters: type, season, price, guests
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
